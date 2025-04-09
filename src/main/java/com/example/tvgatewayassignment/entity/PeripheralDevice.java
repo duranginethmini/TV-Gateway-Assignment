@@ -1,5 +1,7 @@
 package com.example.tvgatewayassignment.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -27,6 +29,7 @@ public class PeripheralDevice {
 
     @ManyToOne
     @JoinColumn(name = "gateway_id", nullable = false)
+    @JsonIgnore
     private Gateway gateway;
 
     @PrePersist
