@@ -3,16 +3,14 @@ package com.example.tvgatewayassignment.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
 @Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Gateway {
 
     @Id
@@ -30,4 +28,13 @@ public class Gateway {
 
     @OneToMany(mappedBy = "gateway", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<PeripheralDevice> peripheralDevices;
+
+
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
 }
