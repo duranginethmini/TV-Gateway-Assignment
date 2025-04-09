@@ -30,12 +30,12 @@ public class GatewayController {
         return gatewayService.createGateway(gateway);
     }
 
-    @PutMapping("/id")
+    @PutMapping("/{id}")
     public Gateway update (@PathVariable Long id, @Valid @RequestBody Gateway gateway) {
          return gatewayService.updateGateway(id, gateway);
     }
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id) {
         gatewayService.deleteGateway(id);
     }
