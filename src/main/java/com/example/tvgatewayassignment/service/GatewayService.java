@@ -36,6 +36,23 @@ public class GatewayService {
         return gatewayRepository.save(gateway);
     }
 
+    public Gateway partialUpdateGateway(Long id, Gateway updated) {
+        Gateway gateway = getGateway(id);
+
+
+        if (updated.getSerialNumber() != null) {
+            gateway.setSerialNumber(updated.getSerialNumber());
+        }
+        if (updated.getName() != null) {
+            gateway.setName(updated.getName());
+        }
+        if (updated.getIpv4Address() != null) {
+            gateway.setIpv4Address(updated.getIpv4Address());
+        }
+
+        return gatewayRepository.save(gateway);
+    }
+
     public void deleteGateway(Long id) {
         Gateway gateway = getGateway(id);
         gatewayRepository.delete(gateway);

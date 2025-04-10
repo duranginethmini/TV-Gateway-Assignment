@@ -34,6 +34,10 @@ public class GatewayController {
     public Gateway update (@PathVariable Long id, @Valid @RequestBody Gateway gateway) {
          return gatewayService.updateGateway(id, gateway);
     }
+    @PatchMapping("/{id}")
+    public Gateway partialUpdate(@PathVariable Long id, @RequestBody Gateway gateway) {
+        return gatewayService.partialUpdateGateway(id, gateway);
+    }
 
     @DeleteMapping("/{id}")
     public void delete (@PathVariable Long id) {

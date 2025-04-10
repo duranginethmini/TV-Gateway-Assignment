@@ -47,6 +47,20 @@ public class PeripheralDeviceService {
         return peripheralDeviceRepository.save(peripheralDevice);
     }
 
+    public PeripheralDevice partialUpdateDevice(Long gatewayId, Long uid, PeripheralDevice updatedDevice) {
+        PeripheralDevice existingDevice = getDevice(gatewayId, uid);
+
+        if (updatedDevice.getVendor() != null) {
+            existingDevice.setVendor(updatedDevice.getVendor());
+        }
+        if (updatedDevice.getStatus() != null) {
+            existingDevice.setStatus(updatedDevice.getStatus());
+        }
+
+        return peripheralDeviceRepository.save(existingDevice);
+    }
+
+
     public void deleteDevice (Long gatewayId ,  Long uid) {
          PeripheralDevice peripheralDevice = getDevice(gatewayId,uid);
          peripheralDeviceRepository.delete(peripheralDevice);

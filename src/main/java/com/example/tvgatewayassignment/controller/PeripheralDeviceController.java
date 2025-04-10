@@ -37,6 +37,11 @@ public class PeripheralDeviceController {
           return peripheralDeviceService.updateDevice(gatewayId,uid,peripheralDevice);
     }
 
+    @PatchMapping("/{uid}")
+    public PeripheralDevice partialUpdate(@PathVariable Long gatewayId, @PathVariable Long uid, @RequestBody PeripheralDevice peripheralDevice) {
+        return peripheralDeviceService.partialUpdateDevice(gatewayId, uid, peripheralDevice);
+    }
+
     @DeleteMapping("/{uid}")
     public void delete(@PathVariable Long gatewayId, @PathVariable Long uid) {
            peripheralDeviceService.deleteDevice(gatewayId,uid);
