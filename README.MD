@@ -28,21 +28,22 @@ Each peripheral device has:
 
 ### Gateway Endpoints
 
-- **GET** `/gateways`: List all gateways.
-- **GET** `/gateways/{id}`: Get details of a specific gateway.
-- **POST** `/gateways`: Create a new gateway.
+- **GET** `/gateway`: List all gateways.
+- **GET** `/gateway/{id}`: Get details of a specific gateway.
+- **POST** `/gateway`: Create a new gateway.
     - **Validation:** Serial number, name, and IPv4 address must be provided and validated.
     - **Limit:** No more than 10 peripheral devices can be associated with a gateway.
-- **PUT** `/gateways/{id}`: Update a gateway's information.
-- **DELETE** `/gateways/{id}`: Delete a gateway.
+- **PUT** `/gateway/{id}`: Update a gateway's information.
+- **PATCH** `/gateway/{id}`: Partial Update of a gateway (only update fields provided in the request).
+- **DELETE** `/gateway/{id}`: Delete a gateway.
 
 ### Peripheral Device Endpoints
 
-- **GET** `/devices`: List all peripheral devices.
-- **GET** `/devices/{id}`: Get details of a specific peripheral device.
-- **POST** `/devices`: Create a new peripheral device associated with a gateway.
-- **PUT** `/devices/{id}`: Update a peripheral device's information.
-- **DELETE** `/devices/{id}`: Delete a peripheral device.
+- **GET** `/gateway/{gatewayId}/devices`: List all peripheral devices.
+- **GET** `/gateway/{gatewayId}/devices/{uid}`: Get details of a specific peripheral device.
+- **POST** `/gateway/{gatewayId}/devices`: Create a new peripheral device associated with a gateway.
+- **PUT** `/gateway/{gatewayId}/devices/{id}`: Update a peripheral device's information.
+- **DELETE** `/gateway/{gatewayId}/devices/{id}`: Delete a peripheral device.
 
 ### Checkout the API Documentation
 [TV Gateway API Documentation](https://documenter.getpostman.com/view/35948713/2sB2cX9gip)
